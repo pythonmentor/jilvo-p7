@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GrandPy-Bot</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link rel="stylesheet" type="text/css" href="../static/bootstrap/bootstrap.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+  <body>
+<header>
+            <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+                <h1>GrandPy-Bot</h1>
+                <img src="../static/png/logo.png" alt="grandpy">
+                <h4>Poses une question sur un lieu à GrandPy-Bot, il essaiera de t'indiquer l'adresse !</h4>
+            </nav>
+        </header>
+        
+        <main id="chat">
+            <ul>
+                <li class="answer">
+                    <div class="speech-bubble">
+                        Bonjour mon petit !
+                    </div>
+                </li>
+            </ul>
+        </main>
+        
+        <section>
+            <form onsubmit="grandpyAnswer();return false;">
+                <label for="user_input" class="lead">Poses ta question à GrandPy-Bot :</label>
+                <br>
+                <input type="text" name="user_input" id="user_input">
+                <a class="btn btn-dark" href="javascript:grandpyAnswer();">Envoyer</a>
+            </form>
+        </section>
+        
+        <footer class="card-footer">
+            <a href="https://github.com/Jilvo/OC_GrandPy_Bot">
+                <img src="../static/png/github.png" alt="Github">
+            </a>
+            <span class="italic">
+                Copyright
+            </span>
+        </footer>
+    </body>
+     <script type="text/javascript" src="../static/script.js"></script>
+
+</html>

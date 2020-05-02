@@ -1,20 +1,10 @@
-from flask import Flask,url_for
+from flask import Flask
 
-app = Flask(__name__)
+web_name = Flask(__name__)
 
-# # Config options - Make sure you created a 'config.py' file.
-# app.config.from_object('config')
-# # To get one variable, tape app.config['MY_VARIABLE']
-
-@app.route('/')
-@app.route('/index')
+@web_name.route('/')
 def index():
-        return("Hello world")
-if __name__ == "__main__":
-        app.run()
+    return "Hello world !"
 
-@app.route('/profil')
-def profil():
-        return('Bonjour vous avez')
 if __name__ == "__main__":
-        app.run()
+    web_name.run()
