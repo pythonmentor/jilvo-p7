@@ -4,14 +4,15 @@
         <title>GrandPy-Bot</title>
         <link rel="stylesheet" type="text/css" href="../static/style.css">
         <link rel="stylesheet" type="text/css" href="../static/bootstrap/bootstrap.min.css">
+        <script type="text/javascript" src="../static/script.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
     </head>
   <body>
 <header>
             <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-                <h1>GrandPy-Bot</h1>
+                <h1>GrandPy-Bot, le papy qui sait tout sur tout , enfin c'est ce qu'il pense</h1>
                 <img src="../static/png/logo.png" alt="grandpy">
-                <h4>Poses une question sur un lieu à GrandPy-Bot, il essaiera de t'indiquer l'adresse !</h4>
             </nav>
         </header>
         
@@ -30,19 +31,18 @@
                 <label for="user_input" class="lead">Poses ta question à GrandPy-Bot :</label>
                 <br>
                 <input type="text" name="user_input" id="user_input">
-                <a class="btn btn-dark" href="javascript:grandpyAnswer();">Envoyer</a>
+                <a id='api_google' class="btn btn-dark" href="javascript:grandpyAnswer();">Envoyer</a>
             </form>
         </section>
         
         <footer class="card-footer">
-            <a href="https://github.com/Jilvo/OC_GrandPy_Bot">
+            <a href="https://github.com/Jilvo/OC_GrandPy_Bot" onclick="window.open(this.href); return false;" >
                 <img src="../static/png/github.png" alt="Github">
             </a>
             <span class="italic">
-                Copyright
+                Julien MILLOT
             </span>
         </footer>
+        <script type="text/javascript" src="../static/getresponse_api.1.js"></script>
     </body>
-     <script type="text/javascript" src="../static/script.js"></script>
-
 </html>
