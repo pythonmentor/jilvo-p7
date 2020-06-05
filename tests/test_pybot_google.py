@@ -12,7 +12,7 @@ def test_OK_google_places():
             dico=geometry["geometry"]
             lat = dico['location']["lat"]
             lng = dico['location']["lng"]
-            print('lat is' + str(lat) + 'lng is' + str(lng))
+            print('lat is ' + str(lat) + 'lng is ' + str(lng))
         # for location in geometry["geometry"]:
         #     if location.get("location",False):
         #         print(location["lat"])

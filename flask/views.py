@@ -16,8 +16,6 @@ def index():
 def map():
     return render_template('/Untitled-1.html')
 
-
-
 @app.route('/api_google/')
 def grandpy():
     user_raw_text = req.args.get('user_raw_text')
@@ -38,10 +36,9 @@ def grandpy():
             print(dict_return)
             
     response = app.response_class(
-        response=json.dumps(return_data, ensure_ascii=False), status=200, mimetype="application/json"
+        response=json.dumps(dict_return, ensure_ascii=False), status=200, mimetype="application/json"
     )
-    dict_return["response"] = response
-    return dict_return
+    return response
 
 if __name__ == "__main__":
     app.run(debug=False)
