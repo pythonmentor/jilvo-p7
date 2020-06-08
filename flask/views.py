@@ -35,6 +35,7 @@ def grandpy():
             dict_return["longitude"] = longitude
             print(dict_return)
             
+    wiki_information = requests.get("https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord="+ longitude + "%7C" + latitude + "&gsradius=10000&gslimit=10&format=json")
     response = app.response_class(
         response=json.dumps(dict_return, ensure_ascii=False), status=200, mimetype="application/json"
     )
