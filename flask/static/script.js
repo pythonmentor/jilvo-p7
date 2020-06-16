@@ -11,8 +11,9 @@ function grandpyAnswer(){
     $.get(url, function (data, status){
       console.log(data)
       compteur++
+      var extract = data.extract
       var id_map = "map_"+compteur
-      $("#chat ul").append('<li class="answer"><div class="speech-bubble">Je ne me souviens plus</div></li>');
+      $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px">' + extract + '</div></li>');
       $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
       console.log("Succès");
       create_map(data["latitude"],data["longitude"],id_map)
@@ -23,8 +24,9 @@ function grandpyAnswer(){
     //     console.log("Succès");
     }).fail(function() {
         $("#chat ul").append('<li class="answer"><div class="speech-bubble">Je ne me souviens plus</div></li>');
-        $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="" style="width:400px;height:400px"></div></div></div>');  
+        $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
         console.log("Echec");
+        create_map(data["latitude"],data["longitude"],id_map)
     });
 
 }

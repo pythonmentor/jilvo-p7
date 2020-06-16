@@ -34,8 +34,30 @@ def grandpy():
             dict_return["latitude"] = latitude
             dict_return["longitude"] = longitude
             print(dict_return)
-            
-    wiki_information = requests.get("https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord="+ longitude + "%7C" + latitude + "&gsradius=10000&gslimit=10&format=json")
+    
+    wiki_place = requests.get("https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=" + str(latitude) + "%7C" + str(longitude) + "&gsradius=10000&gslimit=10&format=json")
+    wiki_place = wiki_place.json()
+    geosearch = {}
+    geosearch = wiki_place["query"]
+    place={}
+    title={}
+    i=0
+    for info_place in geosearch["geosearch"]:
+        i+=1
+        if info_place.get("title",False):
+            place[i] = info_place
+            title[place[i]["title"]]=info_place
+    right_place = place[1]["title"]
+    pageid = place[1]["pageid"] 
+    print(right_place)
+    wiki_information = requests.get("https://fr.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&explaintext&format=json&titles=" + right_place +"")
+    wiki_information = wiki_information.json()
+    query = wiki_information["query"]
+    pages = query["pages"]
+    page_id = pages[str(pageid)]
+    extract = page_id["extract"]
+    dict_return["extract"] = extract
+    
     response = app.response_class(
         response=json.dumps(dict_return, ensure_ascii=False), status=200, mimetype="application/json"
     )
