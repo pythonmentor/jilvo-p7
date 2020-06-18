@@ -48,7 +48,8 @@ def grandpy():
             place[i] = info_place
             title[place[i]["title"]]=info_place
     right_place = place[1]["title"]
-    pageid = place[1]["pageid"] 
+    pageid = place[1]["pageid"]
+    print(pageid)
     print(right_place)
     wiki_information = requests.get("https://fr.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&explaintext&format=json&titles=" + right_place +"")
     wiki_information = wiki_information.json()
@@ -56,8 +57,8 @@ def grandpy():
     pages = query["pages"]
     page_id = pages[str(pageid)]
     extract = page_id["extract"]
-    dict_return["extract"] = extract
-    
+    dict_return["extract"] = extract[0:500]
+    dict_return["pageid"] = pageid
     response = app.response_class(
         response=json.dumps(dict_return, ensure_ascii=False), status=200, mimetype="application/json"
     )

@@ -12,7 +12,9 @@ function grandpyAnswer(){
       console.log(data)
       compteur++
       var extract = data.extract
+      var pageid = data.pageid
       var id_map = "map_"+compteur
+      $("#chat ul").append('<li class="answer"><div class="speech-bubble"><a href="https://fr.wikipedia.org/?curid=' + pageid + '" target="_blank">Voir plus ici</a></div></li>');
       $("#chat ul").append('<li class="answer"><div class="speech-bubble" style= maxheight="100px">' + extract + '</div></li>');
       $("#chat ul").append('<div class="answer"><div class="speech-bubble"><div id="' + id_map + '" style="width:400px;height:400px"></div></div></div>');
       console.log("Succès");
