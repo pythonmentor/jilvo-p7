@@ -4,8 +4,8 @@ sys.path.append(f"{os.getcwd()}/flask_app/")
 from parse_question import parsing
 
 def test_parsing():
-    results = ['tour', 'Eiffel', '']
-    assert parsing("Où est la tour Eiffel ? ") == results
-    
+    results = ['musée', "d'art", "d'histoire", 'de', 'Fribourg,']
+    assert parsing("Salut grandpy! Comment s'est passé ta soirée avec Grandma hier soir? Au fait, pendant que j'y pense, pourrais-tu m'indiquer où se trouve le musée d'art et d'histoire de Fribourg, s'il te plaît?") == results
+
 
 
