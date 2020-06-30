@@ -1,3 +1,4 @@
+""" V0.9--cleaning coding"""
 import requests
 import json
 from parse_question import parsing
@@ -51,5 +52,4 @@ class req_grandpy:
             dict_return_wiki["extract"] = extract[0:500]
             dict_return_wiki["pageid"] = pageid
             return dict_return_wiki
-            
     
