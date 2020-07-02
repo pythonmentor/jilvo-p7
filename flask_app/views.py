@@ -1,21 +1,24 @@
 """ V0.9--cleaning coding"""
-import requests
 import json
-from flask import Flask, render_template, jsonify, make_response
+from flask import Flask, render_template
 from flask_cors import CORS
 from flask import request as req
-from parse_question import parsing
 from grandpy import req_grandpy
 
 app = Flask(__name__)
 CORS(app=app)
+
+
 @app.route('/')
 @app.route('/index')
 def index():
+    """call the template and disp it"""
     return render_template('/index.html')
+
 
 @app.route('/api_google/')
 def req_for_api():
+    """this fonction create an object for the module who make requests"""
     objet = req_grandpy()
     objet.parse(req.args.get('user_raw_text'))
     objet.search_by_google()
@@ -25,6 +28,7 @@ def req_for_api():
                 response=json.dumps(dict_return, ensure_ascii=False),
                 status=200, mimetype="application/json")
     return response
+
 
 if __name__ == "__main__":
     app.run(debug=False)

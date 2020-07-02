@@ -24,5 +24,11 @@ Le site envoie des requêtes au micro programme qui ensuite passe des *requests*
 ### Environnement virtuel
 Les librairies necessaires sont trouvables dans le fichier requirements.txt
 
+## Tâches principales restantes:
+* Parcourir un fichier Json pour les stop-words
+* Faire le diaporama
+* Finir le compte-rendu
+* Finir la Pep8 avec flake8
+
 # Auteur et Contribution:
 J'ai développé ce programme dans le cadre d'une formation sur Openclassrooms.Par conséquent toute pull request avec du code sera refusé. Ouvrez plutôt une issue pour signaler un bug, une faute d'orthographe ou pour simplement donner un conseil.

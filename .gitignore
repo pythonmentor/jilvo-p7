@@ -1,2 +1,3 @@
 /oc_7_env
 /.vscode
+/.tests/test_pybot_google.py
