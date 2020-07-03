@@ -22,7 +22,8 @@ def req_for_api():
     objet = req_grandpy()
     objet.parse(req.args.get('user_raw_text'))
     objet.search_by_google()
-    dict_return = objet.search_by_wiki()
+    objet.search_by_wiki()
+    dict_return = objet.search_by_wiki_bio()
 
     response = app.response_class(
                 response=json.dumps(dict_return, ensure_ascii=False),
