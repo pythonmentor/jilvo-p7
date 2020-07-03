@@ -7,6 +7,9 @@ class req_grandpy:
     def __init__(self):
         self.dict_return = {}
         self.adress = ""
+        self.dict_return_wiki = {}
+        self.pageid = ""
+        self.right_place = ""
 
     def parse(self, user_raw_text):
         list_question = parsing(user_raw_text)
@@ -27,7 +30,7 @@ class req_grandpy:
                 return self.dict_return
 
     def search_by_wiki(self):
-        dict_return_wiki = self.dict_return
+        self.dict_return_wiki = self.dict_return
         wiki_place = requests.get("https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=" + str(self.dict_return["latitude"]) + "%7C" + str(self.dict_return["longitude"]) + "&gsradius=10000&gslimit=10&format=json")
         wiki_place = wiki_place.json()
         geosearch = {}
@@ -40,16 +43,18 @@ class req_grandpy:
             if info_place.get("title", False):
                 place[i] = info_place
                 title[place[i]["title"]] = info_place
-        right_place = place[1]["title"]
-        pageid = place[1]["pageid"]
-        print(pageid)
-        print(right_place)
-        wiki_information = requests.get("https://fr.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&explaintext&format=json&titles=" + right_place + "")
+        self.right_place = place[1]["title"]
+        self.pageid = place[1]["pageid"]
+        print(self.pageid)
+        print(self.right_place)
+
+    def search_by_wiki_bio(self):
+        wiki_information = requests.get("https://fr.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&explaintext&format=json&titles=" + self.right_place + "")
         wiki_information = wiki_information.json()
         query = wiki_information["query"]
         pages = query["pages"]
-        page_id = pages[str(pageid)]
+        page_id = pages[str(self.pageid)]
         extract = page_id["extract"]
-        dict_return_wiki["extract"] = extract[0:500]
-        dict_return_wiki["pageid"] = pageid
-        return dict_return_wiki
+        self.dict_return_wiki["extract"] = extract[0:500]
+        self.dict_return_wiki["pageid"] = self.pageid
+        return self.dict_return_wiki
