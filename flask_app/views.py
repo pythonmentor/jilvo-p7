@@ -3,7 +3,7 @@ import json
 from flask import Flask, render_template
 from flask_cors import CORS
 from flask import request as req
-from grandpy import req_grandpy
+from .grandpy import req_grandpy
 
 app = Flask(__name__)
 CORS(app=app)
@@ -26,6 +26,8 @@ def req_for_api():
     dict_return = objet.search_by_wiki_bio()
 
     response = app.response_class(
-                response=json.dumps(dict_return, ensure_ascii=False),
-                status=200, mimetype="application/json")
+        response=json.dumps(dict_return, ensure_ascii=False),
+        status=200,
+        mimetype="application/json",
+    )
     return response
