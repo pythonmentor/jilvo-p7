@@ -57,4 +57,8 @@ class req_grandpy:
         extract = page_id["extract"]
         self.dict_return_wiki["extract"] = extract[0:500]
         self.dict_return_wiki["pageid"] = self.pageid
+<<<<<<< HEAD
         return self.dict_return_wiki
+=======
+        return self.dict_return_wiki
+>>>>>>> 2c86a5bb7a98f493b40dd1583f426c3f4786c31c

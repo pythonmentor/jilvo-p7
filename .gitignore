@@ -3,3 +3,4 @@
 /.tests/test_pybot_google.py
 /__pycache__
 /.pytest_cache
+/flask_app/__pycache__/
