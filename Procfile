@@ -1,1 +1,1 @@
-web: gunicorn flask_app:grandpy-jilvo
+web: gunicorn run:app
