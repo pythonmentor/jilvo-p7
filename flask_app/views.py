@@ -29,7 +29,3 @@ def req_for_api():
                 response=json.dumps(dict_return, ensure_ascii=False),
                 status=200, mimetype="application/json")
     return response
-
-
-if __name__ == "__main__":
-    app.run(debug=False)
