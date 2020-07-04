@@ -1,1 +1,1 @@
-web: python flask_app/views.py
+web: gunicorn views.py:grandpy-jilvo
